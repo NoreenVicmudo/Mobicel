@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+}
+
+body { 
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container { 
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+	min-height: 100vh;
+	justify-content: center; 
+	align-items: center; 
+}
+
+.bg-color {
+    flex: 1;
+}
+
+.header {
+    background-color: transparent;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.logo-image {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/*LINE AFTER THE LOGO HEADER*/
+.separator {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    height: 1px;
+    background-color: black;
+    width: 100%;
+}
+
+/*SHAPE TO HIGHLIGHT FORGET*/
+#glass {
+    width: 100%;
+    max-width: 700px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	z-index: 2;
+	text-align: center;
+}
+
+
+
+
+/* Confirmation Page Styles */
+.confirmation-container {
+    text-align: center;
+    margin: 0px auto;
+    padding: 20px;
+    max-width: 600px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+/*HEADLINE FOR FORGET PASSWORD*/
+.headline {	
+	text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+	cursor: context-menu;
+	
+}
+
+/*THE LINE AFTER FORGET PASSWORD*/
+.register-line{
+	margin-top:10px;
+	margin-bottom:20px;
+}
+
+
+/*FOOTER CUSTOMIZATION*/
+.footer {
+    background-image: url('footer.jpg');
+    min-height: 50px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px;
+}
+
+.footer-rights{
+	text-align: center;
+    font-size: 17px;
+    color: white;
+    margin: 0 auto; /* Center-align and adjust margins */
+    padding: 0 20px; /* Add some padding for smaller screens */
+	cursor: context-menu;
+}
+
+/*RESPONSIVENESS*/
+@media (max-width: 768px) {
+    .headline {
+        font-size: 30px;
+    }
+   .input-group input,
+    .input-group select {
+        font-size: 14px;
+        margin-left: 0;
+    }
+    #register-form button {
+        width: 50%;
+    }
+	.input-group {
+        flex-direction: column;
+    }
+	.logo-image {
+        max-width: 80px;
+    }
+    .header {
+        padding: 10px;
+    }
+	#register-form button {
+        width: 25%;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .headline {
+        font-size: 24px;
+    }
+    .input-group input,
+    .input-group select {
+        font-size: 12px;
+    }
+    #register-form button {
+        width: 80%;
+    }
+}

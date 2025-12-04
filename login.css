@@ -1,0 +1,394 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+	/*padding-top: 100vh;  Ensure content starts after the video */
+	display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/*VIDEO CUSTOMIZATION AS BACKGROUND */
+.bg-vid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(50%);
+	
+	position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1; /*z-index: -1*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/*BUTTON FOR MUTE AND UNMUTE IN THE VIDEO*/
+#mute-unmute-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 5; /*z-index: 2*/
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#mute-unmute-btn:hover {
+    background-color: #0056b3;
+}
+
+/*TO MAKE THE TEXTS ABOVE THE VIDEO FLEX AND BETTER ALIGNMENT, POSITIONING*/
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2em;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+    z-index: 2; /*z-index: 1;*/
+	animation: fadeIn 2s ease-in-out; /*test*/
+}
+
+/*TEXTS CUSTOMIZATION ABOVE THE VIDEO*/
+.tagline {
+    text-align: center;
+    font-size: 60px;
+    color: white;
+    font-weight: bold;
+	cursor: context-menu;/*test*/
+    text-shadow: 2px 2px 5px black;
+	animation: slideIn 1s ease-out;
+}
+
+.short-desc {
+    text-align: center;
+    font-size: 17px;
+    color: white;
+    margin-top: 10px;
+	cursor: context-menu;
+	animation: slideIn 2s ease out; /*test*/
+}
+
+/*SCROLL DOWN TAP CUSTOMIZATION AND ANIMATION*/
+.scroll-login{
+	font-size: 17px;
+	color:white;
+	text-align: center;
+	margin-bottom: 10px;
+	z-index: 6;
+}
+
+.continue {
+    text-align: center;
+    z-index: 3;
+	bottom: 30px; /*test*/
+	position: absolute; /*test*/
+}
+
+.continue p {
+    margin: 0;
+    cursor: pointer;
+}
+
+.continue a {
+    display: block;
+    margin-top: 10px;
+	text-decoration:none; /*test*/
+	color: white; /*test*/
+}
+
+.arrow {
+	cursor: pointer;
+    width: 20px; /*30px*/
+    height: 20px; /*30px*/
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid white;
+    margin: 0 auto;
+    display: inline-block;
+    animation: bounce 2s infinite;/*1.5*/
+	border: solid white; /*test*/
+	border-width: 0 3px 3px 0; /*test*/
+	transform: rotate(45deg); /*test*/
+	margin-top:10px; /*test*/
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0)rotate(45deg);/*optional rotate*/
+    }
+    40% {
+        transform: translateY(-15px)rotate(45deg);/*-10px*/
+    }
+    60% {
+        transform: translateY(-7px)rotate(45deg);/*-5px*/
+    }
+}
+
+/* TEEEEEEEEEEEEST */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/*START OF THE CONTENT AFTER THE VIDEO*/
+.content {
+    position: relative;
+    z-index: 4; /*z-index: 1;*/
+    width: 100%;
+    text-align: center;
+    /*padding: 20px;*/
+    margin-top: 100vh; /* Adjust to ensure content is below the video ///// */
+}
+
+/*WHITE BACKGROUND*/
+.whitescreen {
+    background-color: rgba(255, 255, 255, 0.9);
+    min-height: calc(90vh - 50px);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+}
+
+/*SHAPE TO HIGHLIGHT LOGIN*/
+#glass {
+    width: 100%;
+    max-width: 700px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*THIS IS FOR THE RESPONSIVENESS OF THE FORM*/
+#login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 400px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #007BFF;
+}
+
+/*HEADER CUSTOMIZATION*/
+.headline {	
+	text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+	cursor: context-menu;
+}
+
+/*THE LINE AFTER LOGIN*/
+.login-line{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+/*FORGET PASSWORD AND SIGN UP CUSTOMIZATION*/
+.sign-up {
+	margin-top:10px;
+	text-align: center;
+    font-size: 17px;
+    color: black;
+    margin-bottom: 20px;
+	cursor: context-menu;
+}
+
+/*THE LOGIN BUTTON CUSTOMIZATION*/
+#login-form button {
+    width: 30%;
+    margin: 20px 0;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#login-form button:hover {
+    background-color: #0056b3;
+}
+
+/*FOOTER CUSTOMIZATION*/
+.footer {
+    background-image: url('footer.jpg');
+    min-height: 50px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px;
+}
+
+.footer-rights{
+	text-align: center;
+    font-size: 17px;
+    color: white;
+    margin: 0 auto; /* Center-align and adjust margins */
+    padding: 0 20px; /* Add some padding for smaller screens */
+	cursor: context-menu;
+}
+
+/*ADJUSTMENT FOR RESPONSIVENESS*/
+@media (max-width: 768px) {
+    .whitescreen {
+        padding: 10px;
+        font-size: 16px;
+        min-height: auto;
+    }
+
+    #glass {
+        width: 80%;
+        font-size: 16px;
+    }
+
+    .footer {
+        padding: 5px;
+    }
+
+    #mute-unmute-btn {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    .input-group label {
+        font-size: 14px;
+    }
+
+    .input-group input {
+        font-size: 14px;
+    }
+
+    #login-form button {
+        font-size: 14px;
+		width: 100%; /* Full-width button on smaller screens */
+    }
+	
+	/*FONT ADJUSTMENTS*/
+	.tagline {
+        font-size: 40px; /* Adjust font size for smaller screens */
+    }
+
+    .short-desc {
+        font-size: 14px; /* Smaller font size for short description */
+    }
+
+    .continue p {
+        font-size: 14px; /* Adjust font size for the continue text */
+    }
+
+    .arrow {
+        width: 15px; /* Adjust arrow size */
+        height: 15px;
+    }
+	
+	.footer-rights {
+        font-size: 15px; /* Slightly smaller font size */
+        padding: 0 10px; /* Reduce padding for medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .whitescreen {
+        padding: 5px;
+        font-size: 14px;
+        min-height: auto;
+    }
+
+    #glass {
+        width: 95%;
+        font-size: 14px;
+    }
+
+    .footer {
+        padding: 5px;
+    }
+
+    #mute-unmute-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .input-group label {
+        font-size: 12px;
+    }
+
+    .input-group input {
+        font-size: 12px;
+    }
+
+    #login-form button {
+        font-size: 12px;
+    }
+	
+	.tagline {
+        font-size: 30px; /* Further adjustment for very small screens */
+    }
+
+    .short-desc {
+        font-size: 12px; /* Smaller font size for very small screens */
+    }
+
+    .continue p {
+        font-size: 12px; /* Adjust font size for continue text */
+    }
+
+    .arrow {
+        width: 12px; /* Smaller arrow size */
+        height: 12px;
+    }
+	
+	.footer-rights {
+        font-size: 13px; /* Further reduce font size */
+        padding: 0 5px; /* Adjust padding for small screens */
+    }
+}
+
